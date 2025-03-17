@@ -1,0 +1,43 @@
+class Main {
+   function void main() {
+       var char key;
+       var int start, end, guess;
+       let start = 0;
+       let end = 101;
+       while (true) {
+           let guess = (start+end) / 2;
+           do Output.printString("My guess is ");
+           do Output.printInt(guess);
+           do Output.println();
+           do Output.printString("Is my guess correct? press up, down, or enter");
+           do Output.println();
+           let key = Keyboard.keyPressed();
+           while( Keyboard.keyPressed() = 0 ) {}
+           let key = Keyboard.keyPressed();
+           do Output.println();
+
+
+           if (key = 128){
+               do Output.printString("I guessed it correct! ");
+               do Output.printInt(guess);
+               do Output.println();
+               return;
+               }
+           else {
+               if (key = 131) { // Higher
+               let start = guess;}
+               else {
+                   if (key = 133) { // Lower
+                       let end = guess;
+                   }
+                   else {
+                       do Output.printString("Please enter a valid key (up, down, enter).");
+                       do Output.println();
+                   }
+               }
+           } // end of if statements
+       } // end of while loop
+   return; // end of function main
+   }
+}
+

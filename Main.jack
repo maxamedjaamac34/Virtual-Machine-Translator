@@ -1,0 +1,75 @@
+class Main {
+
+    function void main () {
+      var int i,j,k; // counters
+      var Char key; //stores the key pressed by the users
+      var Array a; //array holds computer's secret numbers
+      var Array b;
+      var boolean exit; 
+      var int iteration;
+      var int fermiCount, picoCount;
+      let iteration = 0;
+      let exit=false; // will convert exit to true. a flag that exits when iteration hits 20
+      let a = Array.new(3); //array of size 3 for capturing secret numbers
+      let b = Array.new(3); //array of size 3 holds digits 
+      // currently storing 346 as our secret number to an array a
+      let a[0] = 3;
+      let a[1] = 4;
+      let a[2] = 6;
+      let i=0;
+
+      do Output.printString("I am thinking of a three- digit number, try to guess my number!, you have 20 attempts only!");
+      
+    while (~exit){
+        while (i<3){
+            while (key = 0) {
+                let key = Keyboard.keyPressed();
+                
+                let b[i] = key-48;// we subtract 48 to convert to an actual number instead of the asci code
+            }
+            while (~(key = 0)) {
+                let key = Keyboard.keyPressed();
+            }
+            let i =i+1;
+        
+      }
+      if (a[0] = b[0] & a[1] = b[1] & a[2] = b[2]){
+        do Output.printString("You guess the answer");
+        do Output.println();
+        return;
+      }
+    let picoCount = 0;
+    let fermiCount = 0;
+
+        // Loop to compare values and indices    
+    let k = 0;
+    while (k < 3) {
+        if (a[k] = b[k]) {
+                let fermiCount = fermiCount + 1;  // Correct value and position
+            } else {
+                // Check for correct value in different position
+                let j = 0;
+                while (j < 3) {
+                    if ((~(k = j)) & (a[k] = b[j])) {
+                        let picoCount = picoCount + 1;
+                        return;
+                    }
+                    let j = j + 1;
+                }
+            }
+            let k = k + 1;
+        }
+        do Output.printString("Pico Count: ");
+        do Output.printInt(picoCount);
+        do Output.println();
+
+        do Output.printString("Fermi Count: ");
+        do Output.printInt(fermiCount);
+        do Output.println();
+
+       let iteration = iteration + 1; 
+       if (iteration =20){let exit =true;} //exits the big while loop after 20 iterations
+    }
+    return;
+       }
+    }
